@@ -39,9 +39,9 @@ By the end of this project, you will be able to:
 
   - Simplify data flow in your React application by refactoring to use the Context API.
 
-  ## 0. Apply Inline CSS Styling to React Components
+## 0. Apply Inline CSS Styling to React Components
 
-  - Building up from the prev project named `alx-react-app`.Go ahead and duplicate the previous directory with your react app and name it `alx-react-app-new`
+- Building up from the prev project named `alx-react-app`.Go ahead and duplicate the previous directory with your react app and name it `alx-react-app-new`
 
 - **Objective:** Enhance the existing React components (`UserProfile`, `Header`, `MainContent`, and `Footer`) with inline CSS styling.
 
