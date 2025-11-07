@@ -5,6 +5,8 @@ const Navbar = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
+        backgroundColor: "white",
+        color: "black",
       }}
     >
       <p>Logo</p>
