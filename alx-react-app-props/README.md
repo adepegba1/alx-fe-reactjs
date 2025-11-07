@@ -15,161 +15,106 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
 
-# Fundamentals and Core Concepts of React
+# Styling, States, Rendering, Routes and Hooks
 
-The "Fundamentals and Core Concepts of React" project is designed to introduce you to the essential elements of React, a popular JavaScript library for building user interfaces. This project aims to provide a solid foundation in React by guiding you through the creation and modification of basic React applications and components. By engaging with this project, you will gain practical experience in setting up React applications, understanding JSX, and working with components and props.
+In the “Styling, States, Rendering, Routes, and Hooks” project, you will enhance your React application by applying inline CSS styling, managing state with hooks, implementing routing, and refactoring to use the Context API. This project is designed for novice learners who aim to build robust and well-structured React applications. By the end of this project, you will have a comprehensive understanding of React’s core concepts and best practices for creating interactive and maintainable web applications.
 
-## Objectives
+## Learning Objectives
 
-- Understand the Basics of React:
+By the end of this project, you will be able to:
 
-  - Learn what React JS is and why it is a valuable tool for web development.
-  - Gain knowledge on how to get started with React and set up a new React application.
+- Apply Inline CSS Styling to React Components:
 
-- Familiarize with ReactDOM and JSX:
+  - Enhance the visual appearance of your React components using inline CSS.
 
-  - Understand the role of ReactDOM in React applications.
-  - Learn how to use JSX to create and structure UI components.
+- Create a Simple Counter Application Using State and Hooks:
 
-- Create and Manage React Components:
+  - Build a counter application using the useState hook to manage component state.
 
-  - Develop various types of React components, including functional components.
-  - Understand the component lifecycle and how to manage component states and props.
+- Build a Simple Company Website with React:
 
-- Build and Modify React Applications:
+  - Create a multi-page React application using React Router for routing.
 
-  - Create a React application from scratch using the create-react-app tool.
-  - Modify and customize pre-built React components to suit specific requirements.
+- Refactor Prop Drilling to Use Context API:
 
-- Work with Props to Pass Data:
+  - Simplify data flow in your React application by refactoring to use the Context API.
 
-  - Learn how to use props to pass data between components.
-  - Create a user profile card component that displays user information through props.
+## 2. Refactor Prop Drilling to Use Context API
 
-- Integrate Multiple Components:
-  - Assemble multiple specific React components into a main application component.
-  - Ensure proper integration and functionality of the combined components within the application.
+- **Objective:** Refactor an existing React application that uses prop drilling to manage user data across multiple components. Implement the Context API to streamline data flow within the application.
 
-## Tasks
+- For this project use the project you created with the directory `alx-react-app`. Duplicate that directory and rename the duplicate as `alx-react-app-props`. Use this new directory for this task.
 
-### 0. Create your first React App
+### **Initial Code with Prop Drilling**
 
-- Create an empty repository called `alx-fe-reactjs`
-
-- Clone the repository and cd into that directory.
-
-- Run the command `npm create vite@latest alx-react-app -- --template react` where alx-react-app is the name of your react app.
-
-- To see what your app looks like, go ahead cd into the `alx-react-app` directory that will be created and run the command `npm install`.
-
-- Next, run the command `npm run dev`.
-
-- The app will now open in your browser on port 5173. If that doesn’t happen, then just open a browser and type in the address bar <code>localhost:5173</code> and click enter.
-
-### 1. Modify JSX in a Pre-built React Component
-
-- Objective: Familiarize yourself with JSX
-
-- Create a new file called WelcomeMessage.jsx under src/components
-
-- Copy and paste the following code into the file
+- Suppose you have the following components set up with prop drilling:
+- **App.jsx**
 
 ```jsx
-function WelcomeMessage() {
+import ProfilePage from "./ProfilePage";
+
+function App() {
+  const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
+
+  return <ProfilePage userData={userData} />;
+}
+
+export default App;
+```
+
+- **ProfilePage.jsx:**
+
+```jsx
+import UserInfo from "./UserInfo";
+
+function ProfilePage({ userData }) {
+  return <UserInfo userData={userData} />;
+}
+
+export default ProfilePage;
+```
+
+- **UserInfo.jsx:**
+
+```jsx
+import UserDetails from "./UserDetails";
+
+function UserInfo({ userData }) {
+  return <UserDetails userData={userData} />;
+}
+
+export default UserInfo;
+```
+
+- **UserDetails.jsx:**
+
+```jsx
+function UserDetails({ userData }) {
   return (
     <div>
-      <h1>Welcome to ALX React APP!</h1>
-      <p>This is a simple JSX component.</p>
+      <p>Name: {userData.name}</p>
+      <p>Email: {userData.email}</p>
     </div>
   );
 }
 
-export default WelcomeMessage;
+export default UserDetails;
 ```
 
-- Examine the <code>WelcomeMessage.jsx</code> file to understand its structure and the JSX it contains.
-- Change the `<h1>` tag text to "Hello everyone, I am learning React at ALX!".
-- Add a new paragraph (`<p>`) tag with the custom message, **"I am learning about JSX!"**.
-- Integrate this new file (component) into your app by doing the following:
-- Add this line to the top of your App.jsx file: <code>import WelcomeMessage from './components/WelcomeMessage</code>
-- Include the `<WelcomeMessage />` component inside the return statement of the App function.
-  Run and Observe Changes:
-- Start the application using <code>npm run dev.</code>
-- Observe the changes in the browser and ensure your updated text is displayed.
+### Refactoring Task
 
-### 2. Create Specific Components in a React Application
+#### Instructions:
 
-- Objective: Learn to create and assemble multiple specific React components within a main application component.
+- **Create a UserContext:**
 
-- Create Three Specific Components:
+  - Create a new file UserContext.js.
+  - Initialize a Context using React.createContext() and export it.
 
-- **Header Component (Header.jsx):**
-- Create a functional component that returns the following JSX element:
+- Provide Context in App:
 
-```html
-<header>
-  <h1>My Favorite Cities</h1>
-</header>
-```
+  - In App.jsx, import UserContext and wrap the ProfilePage component inside UserContext.Provider. Pass userData as the value to the provider.
 
-- **Main Content Component (MainContent.jsx):**
-- Create a functional component that returns the following JSX element:
-
-```html
-<main>
-  <p>I love to visit New York, Paris, and Tokyo.</p>
-</main>
-```
-
-- **Footer Component (Footer.jsx):**
-- Create a functional component that returns the following JSX element:
-
-```html
-<footer>
-  <p>© 2023 City Lovers</p>
-</footer>
-```
-
-- Include Components in the App Component (App.jsx):
-- Import the three components:
-  - <code>import Header from './components/Header';</code>,
-  - <code>import MainContent from './components/MainContent';</code>, and
-  - <code>import Footer from './components/Footer';</code>.
-- In the App component’s return statement, include these components in the following order: `<Header />`, `<MainContent />`, and `<Footer />`.
-- Run the Application:
-- Start your application using <code>npm run dev</code> or <code>yarn dev</code> (depending on which package manager you are using).
-- Ensure that the application displays the header, main content, and footer as specified.
-
-### 3. Create a User Profile Card Using Props
-
-- **Objective:** Create a UserProfile component that receives and displays user information through props.
-
-- **Instructions:**
-
-- Create UserProfile Component:
-  - In the src/components file, create a new file named UserProfile.jsx.
-  - Define a functional component UserProfile that takes props.
-  - The component should display a user’s name, age, and a short bio. Structure it to include these in JSX elements like `<h2>` for the name, `<p>` for age, and another `<p>` for the bio.
-- Define the Props Structure:
-  - The props for UserProfile should include name, age, and bio.
-  - Example of the component JSX structure:
-
-```jsx
-const UserProfile = (props) => {
-  return (
-    <div>
-      <h2>{props.name}</h2>
-      <p>Age: {props.age}</p>
-      <p>Bio: {props.bio}</p>
-    </div>
-  );
-};
-```
-
-- Use UserProfile in App.jsx:
-
-  - Import UserProfile into your App.jsx file.
-  - Use the component with props. For example: `<UserProfile name="Alice" age="25" bio="Loves hiking and photography" />`
-
-- Run the Application:
-  - Start your application and ensure the UserProfile component displays the information correctly.
+- Consume Context in UserDetails:
+  - Modify UserDetails.jsx to consume UserContext using the useContext hook instead of receiving userData as a prop.
+- Remove Unused Props:
+  - Remove the userData props passed through ProfilePage and UserInfo, as these will no longer be necessary.
