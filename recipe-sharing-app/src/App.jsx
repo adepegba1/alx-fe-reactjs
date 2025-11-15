@@ -11,9 +11,13 @@ function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div>
-      <h1>Recipe App</h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<RecipeList />} />
+        <Route path="/recipe/:id" element={<RecipeDetails />} />
+        <Route path="/edit/:id" element={<EditRecipeForm />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
