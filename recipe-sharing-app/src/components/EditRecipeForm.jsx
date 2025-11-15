@@ -11,8 +11,8 @@ const EditRecipeForm = () => {
 
   const [formData, setFormData] = useState(recipe);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     updateRecipe(id, formData);
     navigate(`/recipe/${id}`);
   };
