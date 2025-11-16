@@ -6,6 +6,7 @@ import DeleteRecipeButton from "./components/DeleteRecipeButton";
 import RecipeDetails from "./components/RecipeDetails";
 import EditRecipeForm from "./components/EditRecipeForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SearchBar from "./components/SearchBar";
 
 function App() {
   const [count, setCount] = useState(0);
