@@ -16,7 +16,7 @@ const Search = ({ onSubmit }) => {
     setError(null);
 
     try {
-      const data = await fetchUserData(username);
+      const data = await fetchUserData({});
       setUserData(data); // store the result for display
       onSubmit(data); // send result to App
     } catch (err) {
@@ -29,12 +29,33 @@ const Search = ({ onSubmit }) => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          maxWidth: "400px",
+          width: "100%",
+        }}
+      >
         <input
           type="text"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
-          placeholder="Enter GitHub username"
+          placeholder="Enter GitHub username (optional)"
+        />
+        <input
+          type="text"
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+          placeholder="Location (optional)"
+        />
+        <input
+          type="number"
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
+          placeholder="Minimum Repositories (optional)"
         />
         <button type="submit">Search</button>
       </form>

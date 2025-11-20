@@ -7,10 +7,15 @@ const githubApi = axios.create({
   },
 });
 
-export const fetchUserData = async (username) => {
+export const fetchUserData = async ({ username, location, minRepos }) => {
+  let query = "";
+  if (username) {
+    query += `${username} in:login`;
+  }
+  if (location) query += ` location:${location}`;
+  if (minRepos) query += ` repos:>=${minRepos}`;
   try {
-    const response = await githubApi.get(`/users/${username}`);
-
+    const response = await githubApi.get(`/search/users?q=${query.trim()}`);
     return response.data;
   } catch (err) {
     // Normalise the error message for the caller.
