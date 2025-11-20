@@ -14,7 +14,7 @@ export const fetchUserData = async (username) => {
     return response.data;
   } catch (err) {
     // Normalise the error message for the caller.
-    if (err.response && err.response.status === 404) {
+    if (err.response || err.response.status === 404) {
       throw new Error("Looks like we cant find the user");
     }
     throw err; // re‑throw other errors (network, timeout, etc.)

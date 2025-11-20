@@ -1,28 +1,32 @@
 import { useState } from "react";
 import { fetchUserData } from "../services/githubService";
 
-const Search = ({ onSearch }) => {
+const Search = ({ onSubmit }) => {
   const [username, setUsername] = useState("");
-  const [userData, setUserData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [userData, setUserData] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (username.trim()) return;
-    onSearch(username);
+
+    if (!username.trim()) return;
+
     setLoading(true);
     setError(null);
-    setUserData(null);
+
     try {
       const data = await fetchUserData(username);
-      setUserData(data);
+      setUserData(data); // store the result for display
+      onSubmit(data); // send result to App
     } catch (err) {
       setError(err.message);
+      setUserData(null);
     } finally {
       setLoading(false);
     }
   };
+
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -34,15 +38,23 @@ const Search = ({ onSearch }) => {
         />
         <button type="submit">Search</button>
       </form>
+
       {loading && <p>Loading...</p>}
-      {error && <p>"Looks like we cant find the user"</p>}
+      {error && <p>{error}</p>}
+
       {userData && (
         <div>
-          <h2>{userData.login}</h2>
+          <h2>{userData.name}</h2>
           <img src={userData.avatar_url} alt="avatar" width="100" />
-          <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
-            View Profile
-          </a>
+          <p>
+            <a
+              href={userData.html_url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Profile
+            </a>
+          </p>
         </div>
       )}
     </div>
