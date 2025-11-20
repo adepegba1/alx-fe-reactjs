@@ -1,7 +1,7 @@
 import axios from "axios";
 const apikey = import.meta.env.VITE_APP_GITHUB_API_KEY;
 const githubApi = axios.create({
-  baseURL: "https://api.github.com/search/users?q",
+  baseURL: "https://api.github.com",
   headers: {
     Authorization: `token ${apikey}`,
   },
@@ -17,7 +17,9 @@ export const fetchUserData = async ({ username, location, minRepos }) => {
     if (location) query += ` location:${location}`;
     if (minRepos) query += ` repos:>=${minRepos}`;
 
-    const response = await axios.get(`${baseURL}=${query.trim()}`);
+    const response = await githubApi.get(
+      `/search/users?q=${encodeURIComponent(query.trim())}`
+    );
     return response.data.items;
   } catch (err) {
     // Normalise the error message for the caller.

@@ -7,12 +7,10 @@ const Search = ({ onSubmit }) => {
   const [minRepos, setMinRepos] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [userData, setUserData] = useState(null);
+  const [userData, setUserData] = useState([]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    if (!username.trim()) return;
 
     setLoading(true);
     setError(null);
@@ -23,7 +21,7 @@ const Search = ({ onSubmit }) => {
       onSubmit(data); // send result to App
     } catch (err) {
       setError(err.message);
-      setUserData(null);
+      setUserData([]);
     } finally {
       setLoading(false);
     }
@@ -65,22 +63,32 @@ const Search = ({ onSubmit }) => {
 
       {loading && <p>Searching...</p>}
       {error && <p>Looks like we cant find the user</p>}
-      {userData.map((data) => (
-        <div key={data.id} style={{ marginTop: "1rem" }}>
-          <p>Username: {data.login}</p>
-          <p>
-            Profile URL:{" "}
-            <a href={data.html_url} target="_blank" rel="noopener noreferrer">
-              {data.html_url}
-            </a>
-          </p>
-          <img
-            src={data.avatar_url}
-            alt={`${data.login}'s avatar`}
-            width="100"
-          />
+      {userData.length > 0 && (
+        <div>
+          <h2>Search Results:</h2>
+          {userData.map((user) => (
+            <div
+              key={user.id}
+              style={{
+                border: "1px solid #ccc",
+                margin: "1rem",
+                padding: "1rem",
+              }}
+            >
+              <h3>Username: {user.login}</h3>
+              <a href={user.html_url} target="_blank" rel="noopener noreferrer">
+                View Profile
+              </a>
+              <br />
+              <img
+                src={user.avatar_url}
+                alt={`${user.login}'s avatar`}
+                width="100"
+              />
+            </div>
+          ))}
         </div>
-      ))}
+      )}
     </div>
   );
 };
