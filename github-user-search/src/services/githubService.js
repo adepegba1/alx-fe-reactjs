@@ -4,6 +4,7 @@ const githubApi = axios.create({
   baseURL: "https://api.github.com/search/users?q",
   headers: {
     Authorization: `token ${apikey}`,
+    "User-Agent": "request",
   },
 });
 
