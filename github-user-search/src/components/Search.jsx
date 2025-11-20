@@ -44,7 +44,8 @@ const Search = ({ onSubmit }) => {
 
       {userData && (
         <div>
-          <h2>{userData.name}</h2>
+          <h2>Name:{userData.name}</h2>
+          <p>Username: {userData.login}</p>
           <img src={userData.avatar_url} alt="avatar" width="100" />
           <p>
             <a
