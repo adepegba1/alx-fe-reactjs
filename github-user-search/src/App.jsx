@@ -1,5 +1,5 @@
 import Search from "./components/Search";
-import { fetchGitHubUser } from "./services/githubApi";
+import { fetchGitHubUser } from "./services/githubService";
 import { useState } from "react";
 
 const App = () => {
