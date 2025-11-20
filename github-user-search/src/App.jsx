@@ -1,27 +1,15 @@
 import Search from "./components/Search";
-import { fetchGitHubUser } from "./services/githubService";
+import { fetchUserData } from "./services/githubService";
 import { useState } from "react";
 
 const App = () => {
   const [searchResult, setSearchResult] = useState(null);
-  const [error, setError] = useStete(null);
-
-  const fetchGitHubUser = async (username) => {
-    try {
-      setError(null);
-      const response = await fetch(`https://api.github.com/users/${username}`);
-      if (!response.ok) throw new Error("Looks like we cant find the user");
-      const data = await response.json();
-      setSearchResult(data);
-    } catch (error) {
-      setError(error.message);
-    }
-  };
+  const [error, setError] = useState(null);
 
   return (
     <div>
       <h1>GitHub User Search</h1>
-      <Search onSearch={fetchGitHubUser} />
+      <Search onSearch={fetchUserData} />
       {searchResult && (
         <div>
           <h2>{searchResult.login}</h2>
