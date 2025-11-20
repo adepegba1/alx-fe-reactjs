@@ -3,6 +3,8 @@ import { fetchUserData } from "../services/githubService";
 
 const Search = ({ onSubmit }) => {
   const [username, setUsername] = useState("");
+  const [location, setLocation] = useState("");
+  const [minRepos, setMinRepos] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [userData, setUserData] = useState(null);
@@ -16,7 +18,7 @@ const Search = ({ onSubmit }) => {
     setError(null);
 
     try {
-      const data = await fetchUserData({});
+      const data = await fetchUserData({ username, location, minRepos });
       setUserData(data); // store the result for display
       onSubmit(data); // send result to App
     } catch (err) {
@@ -29,6 +31,7 @@ const Search = ({ onSubmit }) => {
 
   return (
     <div>
+      <h2>Advanced GitHub User Search</h2>
       <form
         onSubmit={handleSubmit}
         style={{
@@ -60,25 +63,24 @@ const Search = ({ onSubmit }) => {
         <button type="submit">Search</button>
       </form>
 
-      {loading && <p>Loading...</p>}
+      {loading && <p>Searching...</p>}
       {error && <p>Looks like we cant find the user</p>}
-
-      {userData && (
-        <div>
-          <h2>Name:{userData.name}</h2>
-          <p>Username: {userData.login}</p>
-          <img src={userData.avatar_url} alt="avatar" width="100" />
+      {userData.map((data) => (
+        <div key={data.id} style={{ marginTop: "1rem" }}>
+          <p>Username: {data.login}</p>
           <p>
-            <a
-              href={userData.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Profile
+            Profile URL:{" "}
+            <a href={data.html_url} target="_blank" rel="noopener noreferrer">
+              {data.html_url}
             </a>
           </p>
+          <img
+            src={data.avatar_url}
+            alt={`${data.login}'s avatar`}
+            width="100"
+          />
         </div>
-      )}
+      ))}
     </div>
   );
 };
