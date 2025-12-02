@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-function Homepage() {
+function HomePage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -26,4 +26,4 @@ function Homepage() {
     </>
   );
 }
-export default Homepage;
+export default HomePage;
