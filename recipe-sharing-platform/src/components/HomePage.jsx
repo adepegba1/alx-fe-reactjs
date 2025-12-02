@@ -11,11 +11,11 @@ function HomePage() {
   }, []);
   return (
     <>
-      <div>
+      <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4">
         {data.map((items) => (
           <div
             key={items.id}
-            className="flex flex-col bg-red-200 border-2 max-w-md m-4 p-4 rounded-lg hover:scale-105 transition-transform shadow-lg"
+            className="bg-red-200 border-2 max-w-md m-4 p-4 rounded-lg hover:scale-105 transition-transform shadow-lg"
           >
             <img src={items.image} alt={items.title} />
             <h2 className="text-white font-bold text-3xl">{items.title}</h2>
