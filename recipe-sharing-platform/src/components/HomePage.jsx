@@ -15,11 +15,11 @@ function HomePage() {
         {data.map((items) => (
           <div
             key={items.id}
-            className="flex flex-col bg-red-200 border-2 max-w-md m-4 p-4"
+            className="flex flex-col bg-red-200 border-2 max-w-md m-4 p-4 rounded-lg hover:scale-105 transition-transform shadow-lg"
           >
             <img src={items.image} alt={items.title} />
-            <h2>{items.title}</h2>
-            <p>{items.summary}</p>
+            <h2 className="text-white font-bold text-3xl">{items.title}</h2>
+            <p className="text-xl">{items.summary}</p>
           </div>
         ))}
       </div>
