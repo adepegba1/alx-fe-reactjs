@@ -5,7 +5,7 @@ function AddRecipeForm({ onAddRecipe }) {
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
   const [steps, setSteps] = useState("");
-  const [error, setError] = useState({
+  const [errors, setErrors] = useState({
     title: false,
     ingredients: false,
     instructions: false,
@@ -15,32 +15,32 @@ function AddRecipeForm({ onAddRecipe }) {
   const handleTitleChange = (e) => {
     setTitle(e.target.value);
     if (errors.title) {
-      setError((prev) => ({ ...prev, title: false }));
+      setErrors((prev) => ({ ...prev, title: false }));
     }
   };
 
   const handleIngredientsChange = (e) => {
     setIngredients(e.target.value);
     if (errors.ingredients) {
-      setError((prev) => ({ ...prev, ingredients: false }));
+      setErrors((prev) => ({ ...prev, ingredients: false }));
     }
   };
 
   const handleInstructionsChange = (e) => {
     setInstructions(e.target.value);
     if (errors.instructions) {
-      setError((prev) => ({ ...prev, instructions: false }));
+      setErrors((prev) => ({ ...prev, instructions: false }));
     }
   };
 
   const handleStepsChange = (e) => {
     setSteps(e.target.value);
     if (errors.steps) {
-      setError((prev) => ({ ...prev, steps: false }));
+      setErrors((prev) => ({ ...prev, steps: false }));
     }
   };
 
-  const validationHandler = () => {
+  const validate = () => {
     const newErrors = {
       title: title.trim() === "",
       ingredients:
@@ -48,13 +48,13 @@ function AddRecipeForm({ onAddRecipe }) {
       instructions: instructions.trim() === "",
       steps: steps.trim() === "" || steps.split(/[\n.]/).length < 1,
     };
-    setError(newErrors);
+    setErrors(newErrors);
     return !Object.values(newErrors).some((err) => err);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!validationHandler()) return;
+    if (!validate()) return;
 
     const newRecipe = {
       title,
@@ -71,7 +71,7 @@ function AddRecipeForm({ onAddRecipe }) {
     setIngredients("");
     setInstructions("");
     setSteps("");
-    setError({
+    setErrors({
       title: false,
       ingredients: false,
       instructions: false,
@@ -91,7 +91,7 @@ function AddRecipeForm({ onAddRecipe }) {
           </legend>
           <label htmlFor="title" className="block p-3 text-lg font-semibold">
             Recipe Title:
-            {error.title && (
+            {errors.title && (
               <span className="text-red-500">Please provide a title.</span>
             )}
           </label>
@@ -109,7 +109,7 @@ function AddRecipeForm({ onAddRecipe }) {
             className="block p-3 text-lg font-semibold"
           >
             Ingredients:
-            {error.ingredients && (
+            {errors.ingredients && (
               <span className="text-red-500">
                 Please provide at least two ingredients.
               </span>
@@ -129,7 +129,7 @@ function AddRecipeForm({ onAddRecipe }) {
             className="block p-3 text-lg font-semibold"
           >
             Instructions:{" "}
-            {error.instructions && (
+            {errors.instructions && (
               <span className="text-red-500">Please provide instructions.</span>
             )}
           </label>
@@ -144,7 +144,7 @@ function AddRecipeForm({ onAddRecipe }) {
 
           <label htmlFor="steps" className="block p-3 text-lg font-semibold">
             Cooking steps (one per line):
-            {error.steps && (
+            {errors.steps && (
               <span className="text-red-500">Please provide steps.</span>
             )}
           </label>
