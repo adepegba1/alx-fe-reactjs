@@ -157,7 +157,7 @@ function AddRecipeForm({ onAddRecipe }) {
             className="block w-full p-2 border-2 rounded"
           ></textarea>
           <input
-            type="button"
+            type="submit"
             value="Add Recipe"
             className="block w-full p-2 border-2 rounded bg-blue-500 text-white font-semibold cursor-pointer hover:bg-blue-600 mt-4"
           />
