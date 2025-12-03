@@ -4,10 +4,12 @@ function AddRecipeForm({ onAddRecipe }) {
   const [title, setTitle] = useState("");
   const [ingredients, setIngredients] = useState("");
   const [instructions, setInstructions] = useState("");
+  const [steps, setSteps] = useState("");
   const [error, setError] = useState({
     title: false,
     ingredients: false,
     instructions: false,
+    steps: false,
   });
 
   const handleTitleChange = (e) => {
@@ -31,12 +33,20 @@ function AddRecipeForm({ onAddRecipe }) {
     }
   };
 
+  const handleStepsChange = (e) => {
+    setSteps(e.target.value);
+    if (errors.steps) {
+      setError((prev) => ({ ...prev, steps: false }));
+    }
+  };
+
   const validationHandler = () => {
     const newErrors = {
       title: title.trim() === "",
       ingredients:
         ingredients.trim() === "" || ingredients.split(/[\n,]/).length < 2,
       instructions: instructions.trim() === "",
+      steps: steps.trim() === "" || steps.split(/[\n.]/).length < 1,
     };
     setError(newErrors);
     return !Object.values(newErrors).some((err) => err);
@@ -50,6 +60,7 @@ function AddRecipeForm({ onAddRecipe }) {
       title,
       ingredients: ingredients.split(/[\n,]/).map((ing) => ing.trim()),
       instructions: instructions.split(/[\n.]/).map((inst) => inst.trim()),
+      steps: steps.split(/[\n.]/).map((step) => step.trim()),
     };
 
     if (onAddRecipe) {
@@ -59,7 +70,13 @@ function AddRecipeForm({ onAddRecipe }) {
     setTitle("");
     setIngredients("");
     setInstructions("");
-    setError({ title: false, ingredients: false, instructions: false });
+    setSteps("");
+    setError({
+      title: false,
+      ingredients: false,
+      instructions: false,
+      steps: false,
+    });
   };
 
   return (
@@ -122,6 +139,21 @@ function AddRecipeForm({ onAddRecipe }) {
             id="instructions"
             value={instructions}
             onChange={handleInstructionsChange}
+            className="block w-full p-2 border-2 rounded"
+          ></textarea>
+
+          <label htmlFor="steps" className="block p-3 text-lg font-semibold">
+            Cooking steps (one per line):
+            {error.steps && (
+              <span className="text-red-500">Please provide steps.</span>
+            )}
+          </label>
+
+          <textarea
+            name="steps"
+            id="steps"
+            value={steps}
+            onChange={handleStepsChange}
             className="block w-full p-2 border-2 rounded"
           ></textarea>
           <input
