@@ -37,7 +37,7 @@ function RecipeDetail() {
             {recipe.title}
           </h1>
           <img
-            className="w-80 h-80 object-cover rounded-md border-2 mb-4 ml-2"
+            className="w-80 h-80 object-cover rounded-md border-2 mb-4 ml-2 shadow-lg hover:scale-105 transition-transform"
             src={recipe.image}
             alt={recipe.title}
           />
