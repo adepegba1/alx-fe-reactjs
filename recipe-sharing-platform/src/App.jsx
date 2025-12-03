@@ -1,8 +1,16 @@
 import HomePage from "./components/HomePage";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
+import RecipeDetail from "./components/RecipeDetail";
+
 function App() {
   return (
     <>
-      <HomePage />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/recipe/:id" element={<RecipeDetail />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

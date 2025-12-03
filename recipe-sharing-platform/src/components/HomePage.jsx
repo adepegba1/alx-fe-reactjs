@@ -17,7 +17,11 @@ function HomePage() {
             key={items.id}
             className="bg-red-200 border-2 max-w-md m-4 p-4 rounded-lg hover:scale-105 transition-transform shadow-lg"
           >
-            <img src={items.image} alt={items.title} />
+            <img
+              className="w-full h-48 object-cover rounded-md"
+              src={items.image}
+              alt={items.title}
+            />
             <h2 className="text-white font-bold text-3xl">{items.title}</h2>
             <p className="text-xl">{items.summary}</p>
           </div>

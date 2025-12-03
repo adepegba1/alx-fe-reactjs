@@ -3,12 +3,254 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://www.budgetbytes.com/wp-content/uploads/2016/05/Spaghetti-Carbonara-Plated-500x500.jpg",
+    "ingredients": [
+      "200g spaghetti",
+      "100g pancetta or bacon, diced",
+      "2 large eggs",
+      "50g grated Parmesan cheese",
+      "2 cloves garlic, minced",
+      "Salt and black pepper to taste",
+      "Fresh parsley for garnish (optional)"
+    ],
+    "instructions": [
+      "Cook the spaghetti according to package instructions until al dente. Reserve 1/2 cup of pasta water and drain the rest.",
+      "In a pan, cook the pancetta or bacon over medium heat until crispy. Add minced garlic and sauté for 1 minute. Remove from heat.",
+      "In a bowl, whisk together the eggs and grated Parmesan cheese.",
+      "Add the cooked spaghetti to the pan with pancetta and toss to combine.",
+      "Remove the pan from heat and quickly pour in the egg and cheese mixture, tossing rapidly to create a creamy sauce. If needed, add reserved pasta water a little at a time to reach desired consistency.",
+      "Season with salt and black pepper to taste.",
+      "Garnish with fresh parsley if desired and serve immediately."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
     "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/150"
+    "image": "https://www.recipetineats.com/tachyon/2018/04/Chicken-Tikka-Masala_0-SQ.jpg",
+    "ingredients": [
+      "500g boneless chicken thighs",
+      "1 cup yogurt",
+      "2 tbsp lemon juice",
+      "2 tsp ground cumin",
+      "2 tsp ground coriander",
+      "1 tsp turmeric",
+      "1 tsp garam masala",
+      "1 tsp chili powder",
+      "2 tbsp vegetable oil",
+      "1 large onion, finely chopped",
+      "3 cloves garlic, minced",
+      "1 tbsp grated ginger",
+      "400g canned tomatoes",
+      "1 cup heavy cream",
+      "Salt to taste",
+      "Fresh cilantro for garnish"
+    ],
+    "instructions": [
+      "In a bowl, combine yogurt, lemon juice, cumin, coriander, turmeric, garam masala, and chili powder. Add chicken pieces and marinate for at least 1 hour.",
+      "Heat oil in a large pan over medium heat. Add chopped onions and sauté until golden brown.",
+      "Add garlic and ginger, cook for another minute until fragrant.",
+      "Add marinated chicken to the pan and cook until no longer pink.",
+      "Pour in canned tomatoes and simmer for 15-20 minutes until the chicken is cooked through.",
+      "Stir in heavy cream and cook for an additional 5 minutes. Season with salt to taste.",
+      "Garnish with fresh cilantro and serve with rice or naan."
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Vegetable Stir-Fry",
+    "summary": "A quick and healthy vegetable stir-fry with a savory sauce.",
+    "image": "https://natashaskitchen.com/wp-content/uploads/2020/08/Vegetable-Stir-Fry-SQ-500x500.jpg",
+    "ingredients": [
+      "2 tbsp vegetable oil",
+      "2 cloves garlic, minced",
+      "1 inch ginger, grated",
+      "1 red bell pepper, sliced",
+      "1 yellow bell pepper, sliced",
+      "1 cup broccoli florets",
+      "1 cup snap peas",
+      "1 carrot, julienned",
+      "100g mushrooms, sliced",
+      "3 tbsp soy sauce",
+      "1 tbsp oyster sauce",
+      "1 tsp sesame oil",
+      "1 tsp cornstarch mixed with 2 tbsp water (optional for thickening)",
+      "Sesame seeds for garnish (optional)"
+    ],
+    "instructions": [
+      "Heat vegetable oil in a large wok or skillet over medium-high heat.",
+      "Add minced garlic and grated ginger, sauté for 30 seconds until fragrant.",
+      "Add all the vegetables and stir-fry for 5-7 minutes until they are tender-crisp.",
+      "In a small bowl, mix soy sauce, oyster sauce, and sesame oil. Pour the sauce over the vegetables and toss to coat.",
+      "If you prefer a thicker sauce, add the cornstarch mixture and cook for another minute until the sauce thickens.",
+      "Garnish with sesame seeds if desired and serve hot with rice or noodles."
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Chocolate Chip Cookies",
+    "summary": "Classic homemade chocolate chip cookies with a chewy center and crispy edges.",
+    "image": "https://www.allrecipes.com/thmb/dNzzgeEyacuH-RIfMI4PjWFODBM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-9996-chewy-peanut-butter-chocolate-chip-cookies-ddmfs-4x3-614164ea044a4845b3cca7e725ecf7bd.jpg",
+    "ingredients": [
+      "1 cup unsalted butter, softened",
+      "1 cup white sugar",
+      "1 cup brown sugar, packed",
+      "2 large eggs",
+      "2 tsp vanilla extract",
+      "3 cups all-purpose flour",
+      "1 tsp baking soda",
+      "1/2 tsp baking powder",
+      "1/2 tsp salt",
+      "2 cups semisweet chocolate chips"
+    ],
+    "instructions": [
+      "Preheat oven to 350°F (175°C). Line baking sheets with parchment paper.",
+      "In a large bowl, cream together the butter, white sugar, and brown sugar until smooth.",
+      "Beat in the eggs one at a time, then stir in the vanilla extract.",
+      "In a separate bowl, combine the flour, baking soda, baking powder, and salt. Gradually blend this into the creamed mixture.",
+      "Fold in the chocolate chips.",
+      "Drop rounded spoonfuls of dough onto the prepared baking sheets.",
+      "Bake for 10-12 minutes or until edges are golden brown. Allow cookies to cool on the baking sheet for a few minutes before transferring to wire racks to cool completely."
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Caesar Salad",
+    "summary": "A fresh and crunchy Caesar salad with homemade dressing and croutons.",
+    "image": "https://itsavegworldafterall.com/wp-content/uploads/2023/04/Avocado-Caesar-Salad-FI.jpg",
+    "ingredients": [
+      "1 large head romaine lettuce, chopped",
+      "1/2 cup grated Parmesan cheese",
+      "1 cup croutons",
+      "1/4 cup olive oil",
+      "2 cloves garlic, minced",
+      "1 tsp Dijon mustard",
+      "2 tbsp lemon juice",
+      "1 tsp Worcestershire sauce",
+      "1/2 cup mayonnaise",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "In a small bowl, whisk together olive oil, minced garlic, Dijon mustard, lemon juice, Worcestershire sauce, and mayonnaise to make the dressing. Season with salt and black pepper to taste.",
+      "In a large salad bowl, combine chopped romaine lettuce, grated Parmesan cheese, and croutons.",
+      "Pour the dressing over the salad and toss to coat evenly.",
+      "Serve immediately as a side dish or add grilled chicken for a complete meal."
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Pancakes",
+    "summary": "Fluffy homemade pancakes perfect for a weekend breakfast.",
+    "image": "https://www.allrecipes.com/thmb/ywrODZNVX6SDdyA3XqkgeqBF1M4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/21014-good-old-fashioned-pancakes-VAT-004-4x3-02-d6ce3b61def840fcaf40a43f805b733e.jpg",
+    "ingredients": [
+      "1 1/2 cups all-purpose flour",
+      "3 1/2 tsp baking powder",
+      "1 tsp salt",
+      "1 tbsp white sugar",
+      "1 1/4 cups milk",
+      "1 egg",
+      "3 tbsp melted butter"
+    ],
+    "instructions": [
+      "In a large bowl, sift together the flour, baking powder, salt, and sugar.",
+      "Make a well in the center and pour in the milk, egg, and melted butter; mix until smooth.",
+      "Heat a lightly oiled griddle or frying pan over medium-high heat.",
+      "Pour or scoop the batter onto the griddle, using approximately 1/4 cup for each pancake.",
+      "Cook until bubbles form on the surface of the pancakes and the edges are dry, then flip and cook until browned on the other side.",
+      "Serve hot with maple syrup, fresh fruit, or your favorite toppings."
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Guacamole",
+    "summary": "A creamy and flavorful avocado dip perfect for parties and snacks.",
+    "image": "https://www.allrecipes.com/thmb/FOHqtfrZVg0WAMdkFE3bnp7SNO4=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/AR-RM-14064-easy-guacamole-ddmfs-3x4-9e4a1eb1bb34421a99db675b53a29e53.jpg",
+    "ingredients": [
+      "3 ripe avocados",
+      "1 lime, juiced",
+      "1 tsp salt",
+      "1/2 cup diced onion",
+      "2 roma tomatoes, diced",
+      "1 tbsp chopped cilantro",
+      "1 clove garlic, minced",
+      "1 jalapeño, seeded and minced (optional)"
+    ],
+    "instructions": [
+      "In a medium bowl, mash the avocados with a fork until smooth but still chunky.",
+      "Add lime juice and salt, mixing well to combine.",
+      "Stir in diced onion, tomatoes, cilantro, garlic, and jalapeño (if using).",
+      "Taste and adjust seasoning if necessary.",
+      "Serve immediately with tortilla chips or as a topping for tacos and other dishes."
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Beef Tacos",
+    "summary": "Delicious beef tacos with fresh toppings and a flavorful seasoning.",
+    "image": "https://www.onceuponachef.com/images/2023/08/Beef-Tacos.jpg",
+    "ingredients": [
+      "500g ground beef",
+      "1 small onion, diced",
+      "2 cloves garlic, minced",
+      "1 tbsp chili powder",
+      "1 tsp ground cumin",
+      "1 tsp paprika",
+      "1/2 tsp oregano",
+      "Salt and black pepper to taste",
+      "8 small taco shells or tortillas",
+      "Toppings: shredded lettuce, diced tomatoes, grated cheese, sour cream, salsa"
+    ],
+    "instructions": [
+      "In a large skillet, cook the ground beef over medium heat until browned. Drain excess fat.",
+      "Add diced onion and minced garlic to the skillet and cook until softened.",
+      "Stir in chili powder, ground cumin, paprika, oregano, salt, and black pepper. Cook for another 2-3 minutes to let the flavors meld.",
+      "Warm the taco shells or tortillas according to package instructions.",
+      "Fill each taco shell with the seasoned beef mixture and top with your favorite toppings such as shredded lettuce, diced tomatoes, grated cheese, sour cream, and salsa.",
+      "Serve immediately and enjoy!"
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Lemon Garlic Salmon",
+    "summary": "A simple and flavorful lemon garlic salmon recipe perfect for a healthy dinner.",
+    "image": "https://www.recipetineats.com/tachyon/2024/02/Lemon-garlic-salmon-tray-bake_1.jpg",
+    "ingredients": [
+      "4 salmon fillets",
+      "2 tbsp olive oil",
+      "3 cloves garlic, minced",
+      "1 lemon, juiced and zested",
+      "Salt and black pepper to taste",
+      "Fresh parsley for garnish (optional)"
+    ],
+    "instructions": [
+      "Preheat oven to 400°F (200°C). Line a baking sheet with parchment paper.",
+      "In a small bowl, mix olive oil, minced garlic, lemon juice, and lemon zest.",
+      "Place salmon fillets on the prepared baking sheet. Brush the lemon garlic mixture over the salmon.",
+      "Season with salt and black pepper to taste.",
+      "Bake for 12-15 minutes or until the salmon is cooked through and flakes easily with a fork.",
+      "Garnish with fresh parsley if desired and serve with your favorite side dishes."
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Caprese Salad",
+    "summary": "A simple and elegant Italian salad made with fresh tomatoes, mozzarella, and basil.",
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwMD4GYPs8ewStXoWKzPJQNs2dUewZQryIGw&s",
+    "ingredients": [
+      "4 large ripe tomatoes, sliced",
+      "250g fresh mozzarella cheese, sliced",
+      "Fresh basil leaves",
+      "2 tbsp extra virgin olive oil",
+      "1 tbsp balsamic glaze (optional)",
+      "Salt and black pepper to taste"
+    ],
+    "instructions": [
+      "On a large platter, alternate slices of tomato and mozzarella cheese.",
+      "Tuck fresh basil leaves between the tomato and mozzarella slices.",
+      "Drizzle extra virgin olive oil over the salad.",
+      "If desired, drizzle balsamic glaze for added flavor.",
+      "Season with salt and black pepper to taste.",
+      "Serve immediately as a refreshing appetizer or side dish."
+    ]
   }
 ]
