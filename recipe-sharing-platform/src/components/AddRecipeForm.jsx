@@ -83,7 +83,7 @@ function AddRecipeForm({ onAddRecipe }) {
     <>
       <form
         onSubmit={handleSubmit}
-        className="border-2 m-4 p-4 rounded-lg max-w-md"
+        className="border-2 m-4 p-4 rounded-lg max-w-md shadow-lg"
       >
         <fieldset>
           <legend className="text-center font-bold text-3xl ">
