@@ -40,7 +40,7 @@ function RegistrationForm() {
             type="text"
             name="username"
             id="username"
-            value={formData.username}
+            value={username}
             onChange={handleChange}
           />
           {errors.username && <p className="error">{errors.username}</p>}
@@ -49,7 +49,7 @@ function RegistrationForm() {
             type="email"
             name="email"
             id="email"
-            value={formData.email}
+            value={email}
             onChange={handleChange}
           />
           {errors.email && <p className="error">{errors.email}</p>}
@@ -59,7 +59,7 @@ function RegistrationForm() {
             type="password"
             name="password"
             id="password"
-            value={formData.password}
+            value={password}
             onChange={handleChange}
           />
           {errors.password && <p className="error">{errors.password}</p>}
