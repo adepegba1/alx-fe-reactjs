@@ -13,11 +13,11 @@ function RegistrationForm() {
     if (!username) {
       newErrors.username = "Enter a username";
     }
-    if (!email.includes("@")) {
-      newErrors.email = "Must include the @ character";
+    if (!email) {
+      newErrors.email = "Must not be empty";
     }
-    if (!password.length < 4) {
-      newErrors.password = "Password must be at least 4 character";
+    if (!password) {
+      newErrors.password = "Enter a password";
     }
     return setError(newErrors);
   };
