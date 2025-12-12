@@ -1,33 +1,29 @@
 import { useState } from "react";
 
 function RegistrationForm() {
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-  });
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [errors, setErrors] = useState({});
 
-  const validateValues = () => {
-    let newErrors = {};
-    if (!username) {
-      newErrors.username = "Enter a username";
-    }
-    if (!email) {
-      newErrors.email = "Must not be empty";
-    }
-    if (!password) {
-      newErrors.password = "Enter a password";
-    }
-    return setErrors(newErrors);
-  };
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+  const validate = () => {
+    const newErrors = {};
+
+    if (!username) newErrors.username = "Enter a username";
+    if (!email) newErrors.email = "Enter an email address";
+    if (!password) newErrors.password = "Enter a password";
+
+    setErrors(newErrors);
+    return newErrors;
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(validateValues(formData));
+    const validationErrors = validate();
+
+    if (Object.keys(validationErrors).length === 0) {
+      // No errors – you can now submit the data
+      console.log("Form submitted:", { username, email, password });
+    }
   };
 
   return (
@@ -41,7 +37,7 @@ function RegistrationForm() {
             name="username"
             id="username"
             value={username}
-            onChange={handleChange}
+            onChange={(e) => setUsername(e.target.value)}
           />
           {errors.username && <p className="error">{errors.username}</p>}
           <label htmlFor="email">Email:</label>
@@ -50,7 +46,7 @@ function RegistrationForm() {
             name="email"
             id="email"
             value={email}
-            onChange={handleChange}
+            onChange={(e) => setEmail(e.target.value)}
           />
           {errors.email && <p className="error">{errors.email}</p>}
 
@@ -60,7 +56,7 @@ function RegistrationForm() {
             name="password"
             id="password"
             value={password}
-            onChange={handleChange}
+            onChange={(e) => setPassword(e.target.value)}
           />
           {errors.password && <p className="error">{errors.password}</p>}
           <button type="submit">Submit Information</button>
