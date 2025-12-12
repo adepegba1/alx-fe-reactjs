@@ -8,18 +8,18 @@ function RegistrationForm() {
   });
   const [errors, setError] = useState({});
 
-  const validateValues = (inputvalues) => {
+  const validateValues = () => {
     let newErrors = {};
-    if (!inputvalues.username) {
+    if (!username) {
       newErrors.username = "Enter a username";
     }
-    if (!inputvalues.email.includes("@")) {
+    if (!email.includes("@")) {
       newErrors.email = "Must include the @ character";
     }
-    if (inputvalues.password.length < 4) {
+    if (!password.length < 4) {
       newErrors.password = "Password must be at least 4 character";
     }
-    return newErrors;
+    return setError(newErrors);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
