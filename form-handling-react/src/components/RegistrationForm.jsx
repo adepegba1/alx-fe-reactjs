@@ -6,7 +6,7 @@ function RegistrationForm() {
     email: "",
     password: "",
   });
-  const [errors, setError] = useState({});
+  const [errors, setErrors] = useState({});
 
   const validateValues = () => {
     let newErrors = {};
@@ -19,7 +19,7 @@ function RegistrationForm() {
     if (!password) {
       newErrors.password = "Enter a password";
     }
-    return setError(newErrors);
+    return setErrors(newErrors);
   };
   const handleChange = (e) => {
     const { name, value } = e.target;
