@@ -1,8 +1,7 @@
 import { useState } from "react";
-import { Navigate, Route } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Navigate, Route, useNavigate } from "react-router-dom";
 
-function useAuth() {
+export function useAuth() {
   const [isLoggedIn, setIsLoggedIn] = useState(() => {
     return localStorage.getItem("authToken") !== null;
   });
@@ -20,7 +19,7 @@ function useAuth() {
   return { isLoggedIn, login, logout };
 }
 
-function Login() {
+export function Login() {
   const navigate = useNavigate();
   const { login } = useAuth();
 

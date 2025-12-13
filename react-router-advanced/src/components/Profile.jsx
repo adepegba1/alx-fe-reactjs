@@ -1,28 +1,25 @@
 import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Link,
   Routes,
+  Route,
+  Link,
   useRouteMatch,
   useParams,
 } from "react-router-dom";
 
 function Profile() {
   return (
-    <Router>
+    <>
       <nav>
         <Link to="/profile">Profile</Link>
       </nav>
-      <Switch>
-        <Routes>
-          <Route path="/profile" component={Homepage} />
-          <Route path="/">
-            <h2>Home</h2>
-          </Route>
-        </Routes>
-      </Switch>
-    </Router>
+
+      <Routes>
+        <Route path="/profile" component={Homepage} />
+        <Route path="/">
+          <h2>Home</h2>
+        </Route>
+      </Routes>
+    </>
   );
 }
 
@@ -40,21 +37,17 @@ const Homepage = () => {
           <Link to={`${url}/settings`}>ProfileSettings</Link>
         </li>
         <li>
-          <Link to={`${url}/posts/`}>Dynamic Blog Post</Link>
+          <Link to={`${url}/posts/42`}>Dynamic Blog Post</Link>
         </li>
       </ul>
 
-      <Switch>
-        <Routes>
-          <Route exact path={path}>
-            <h3>Please select an option.</h3>
-          </Route>
+      <Routes>
+        <Route index element={<h3>Please select an option.</h3>} />
 
-          <Route path={`${path}/details`} component={ProfileDetails} />
-          <Route path={`${path}/settings`} component={ProfileSettings} />
-          <Route path={`${path}/blog/:id`} component={BlogPost} />
-        </Routes>
-      </Switch>
+        <Route path={`${path}/details`} component={ProfileDetails} />
+        <Route path={`${path}/settings`} component={ProfileSettings} />
+        <Route path={`${path}/blog/:id`} component={BlogPost} />
+      </Routes>
     </div>
   );
 };
