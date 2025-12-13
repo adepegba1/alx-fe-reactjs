@@ -1,18 +1,21 @@
 import { useQuery } from "react-query";
 
 // Define a fetch function that can be used to fetch data from an API
-const fetchData = async () => {
+const fetchPosts = async () => {
   const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  if (!res.ok) throw new Error("Network response was not ok");
   return res.json();
 };
 
 const PostsComponent = () => {
   // Use the useQuery hook to handle data fetching and caching
-  const { data, isLoading, isError } = useQuery({
-    fetchPosts: fetchData,
+  const { data, isLoading, isError, refetch } = useQuery("posts", fetchPosts, {
     cacheTime: 60000,
     staleTime: 30000,
     refetchInterval: 120000,
+    refetchOnWindowFocus: true,
+    refetchInterval: 120000,
+    keepPreviousData: true,
   });
 
   // Handle loading state
@@ -23,6 +26,7 @@ const PostsComponent = () => {
   // Render the fetched data
   return (
     <div>
+      <button onClick={refetch}>Refetch Posts</button>
       {data.map((item) => (
         <div key={item.id}>
           <h2>User id: {item.userId}</h2>
