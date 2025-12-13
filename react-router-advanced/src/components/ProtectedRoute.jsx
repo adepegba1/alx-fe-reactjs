@@ -1,48 +1,43 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch,
-} from "react-router-dom";
+import { useState } from "react";
+import { Navigate, Route } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const isAuthenticated = () => {
-  return localStorage.getItem("authToken") !== null;
-};
+function useAuth() {
+  const [isLoggedIn, setIsLoggedIn] = useState(() => {
+    return localStorage.getItem("authToken") !== null;
+  });
 
-const PrivateRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) =>
-      isAuthenticated() ? <Component {...props} /> : <Redirect to="/profile" />
-    }
-  />
-);
-
-const ProtectedRoute = () => (
-  <Router>
-    <div>
-      <Switch>
-        <Route path="/profile" component={Profile} />
-
-        <PrivateRoute path="/details" component={ProfileDetails} />
-
-        <Route path="/">
-          <h2>Home</h2>
-        </Route>
-      </Switch>
-    </div>
-  </Router>
-);
-
-const Login = () => {
-  const handleLogin = () => {
-    localStorage.setItem("authToken", "your-token");
-    window.location.href = "/details";
+  const login = (token = "dummy-token") => {
+    localStorage.setItem("authToken", token);
+    setIsLoggedIn(true);
   };
 
-  return <button onClick={handleLogin}>Login</button>;
-};
+  const logout = () => {
+    localStorage.removeItem("authToken");
+    setIsLoggedIn(false);
+  };
 
-const ProfileDetails = () => <h2>ProfileDetails</h2>;
+  return { isLoggedIn, login, logout };
+}
 
-export default ProtectedRoute;
+function Login() {
+  const navigate = useNavigate();
+  const { login } = useAuth();
+
+  const handleLogin = () => {
+    login(); // store a dummy token
+    navigate("/profile"); // go to the protected route
+  };
+
+  return <button onClick={handleLogin}>Log in</button>;
+}
+
+export function ProtectedRoute({ element, ...rest }) {
+  const { isLoggedIn } = useAuth();
+
+  return isLoggedIn ? (
+    <Route {...rest} element={element} />
+  ) : (
+    <Navigate to="/login" replace />
+  );
+}
