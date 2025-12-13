@@ -52,7 +52,7 @@ const Homepage = () => {
 
           <Route path={`${path}/details`} component={ProfileDetails} />
           <Route path={`${path}/settings`} component={ProfileSettings} />
-          <Route path={`${path}/psts/:id`} component={BlogPost} />
+          <Route path={`${path}/blog/:id`} component={BlogPost} />
         </Routes>
       </Switch>
     </div>
