@@ -12,7 +12,7 @@ export default function App() {
       <Switch>
         <Routes>
           <Route path="/profile" component={Profile} />
-          <Route path="/blog:id" component={BlogPost}>
+          <Route path="/blog/:id" component={BlogPost}>
             <h2>Home</h2>
           </Route>
         </Routes>
