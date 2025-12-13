@@ -3,6 +3,7 @@ import {
   Route,
   Switch,
   Link,
+  Routes,
   useRouteMatch,
   useParams,
 } from "react-router-dom";
@@ -14,10 +15,12 @@ function Profile() {
         <Link to="/profile">Profile</Link>
       </nav>
       <Switch>
-        <Route path="/profile" component={Homepage} />
-        <Route path="/">
-          <h2>Home</h2>
-        </Route>
+        <Routes>
+          <Route path="/profile" component={Homepage} />
+          <Route path="/">
+            <h2>Home</h2>
+          </Route>
+        </Routes>
       </Switch>
     </Router>
   );
@@ -42,13 +45,15 @@ const Homepage = () => {
       </ul>
 
       <Switch>
-        <Route exact path={path}>
-          <h3>Please select an option.</h3>
-        </Route>
+        <Routes>
+          <Route exact path={path}>
+            <h3>Please select an option.</h3>
+          </Route>
 
-        <Route path={`${path}/details`} component={ProfileDetails} />
-        <Route path={`${path}/settings`} component={ProfileSettings} />
-        <Route path={`${path}/psts/:id`} component={BlogPost} />
+          <Route path={`${path}/details`} component={ProfileDetails} />
+          <Route path={`${path}/settings`} component={ProfileSettings} />
+          <Route path={`${path}/psts/:id`} component={BlogPost} />
+        </Routes>
       </Switch>
     </div>
   );
