@@ -7,14 +7,14 @@ import {
   useParams,
 } from "react-router-dom";
 
-function NestedRoutes() {
+function Profile() {
   return (
     <Router>
       <nav>
         <Link to="/profile">Profile</Link>
       </nav>
       <Switch>
-        <Route path="/profile" component={Profile} />
+        <Route path="/profile" component={Homepage} />
         <Route path="/">
           <h2>Home</h2>
         </Route>
@@ -23,7 +23,7 @@ function NestedRoutes() {
   );
 }
 
-const Profile = () => {
+const Homepage = () => {
   let { path, url } = useRouteMatch();
 
   return (
@@ -63,4 +63,4 @@ const BlogPost = () => {
   return <h3>Blog Post #{id}</h3>;
 };
 
-export default NestedRoutes;
+export default Profile;
