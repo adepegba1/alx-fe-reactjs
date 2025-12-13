@@ -1,29 +1,26 @@
-const myList = [
-  {
-    id: 1,
-    task: "Cleaning",
-    description: "Cleaning the house for 30 minutes",
-  },
-  {
-    id: 2,
-    task: "Drawing",
-    description: "Draw my favourite dog on A4 paper",
-  },
-  {
-    id: 3,
-    task: "Coding",
-    description: "Code for 1 hour to learn more about Python",
-  },
-];
-
-function TodoList() {
+function TodoList({ todos, toggleTodo, deleteTodo }) {
   return (
     <>
       <div>
-        {myList.map((item) => (
-          <div key={item.id}>
+        {todos.map((item) => (
+          <div
+            key={item.id}
+            style={{
+              textDecoration: item.completed ? "line-through" : "none",
+              cursor: "pointer",
+            }}
+            onClick={() => toggleTodo(item.id)}
+          >
             <h2>Task: {item.task}</h2>
             <p>Description: {item.description}</p>
+            <button
+              onClick={(e) => {
+                e.stopPropagation();
+                deleteTodo(item.id);
+              }}
+            >
+              Delete
+            </button>
           </div>
         ))}
       </div>
